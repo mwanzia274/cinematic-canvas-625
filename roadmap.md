@@ -1,0 +1,4 @@
+- [x] Create the cinematic photography and videography website and visual design.
+- [x] Add generated concept imagery, project filters, image viewing, and a playable mood reel.
+- [x] Add an honest downloadable project enquiry brief.
+- [ ] Verify the website and its main interactions.
