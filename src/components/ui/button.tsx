@@ -9,6 +9,10 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
+        studio: "rounded-full bg-primary text-primary-foreground hover:bg-primary/85",
+        glass: "rounded-full border border-hero-foreground/50 bg-transparent text-hero-foreground hover:bg-hero-foreground/15",
+        filter: "rounded-full border border-border bg-transparent text-muted-foreground hover:text-foreground hover:bg-secondary data-[active=true]:bg-foreground data-[active=true]:text-background data-[active=true]:border-foreground",
+        project: "h-auto w-full flex-col items-stretch gap-0 whitespace-normal rounded-none p-0 text-left hover:bg-transparent",
         default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
         destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
