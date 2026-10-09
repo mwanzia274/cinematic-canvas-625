@@ -78,9 +78,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Frame Studio — Photography & Film" },
-      { name: "description", content: "Considered photography and cinematic films. A visual storytelling studio." },
-      { property: "og:title", content: "Frame Studio — Photography & Film" },
+      { title: "Pixel — Photography & Film" },
+      { name: "description", content: "Pixel is a Nairobi-based photography and filmmaking studio. Explore packages and request your shoot." },
+      { property: "og:title", content: "Pixel — Photography & Film" },
       { property: "og:description", content: "Considered photography and cinematic films." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
