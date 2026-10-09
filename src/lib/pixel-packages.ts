@@ -1,0 +1,9 @@
+export const packages = [
+  { id: 'portrait', name: 'Portrait session', category: 'Photography', price: 8000, description: 'A little time in the spotlight.', features: ['1-hour session', '15 edited high-resolution images', 'One location · two outfit changes', 'Private digital delivery'] },
+  { id: 'wedding', name: 'The wedding story', category: 'Photography & film', price: 85000, description: 'The big moments. And everything between.', features: ['Up to 8 hours of coverage', 'Photography + cinematic highlight film', '300 edited images', 'Pre-wedding planning consultation'] },
+  { id: 'events', name: 'Event coverage', category: 'Photography', price: 20000, description: 'Your gathering, remembered beautifully.', features: ['Up to 4 hours of coverage', '100 edited high-resolution images', 'Corporate, private & social events', 'Digital gallery delivery'] },
+  { id: 'brand', name: 'Brand & product', category: 'Commercial', price: 25000, description: 'Give your business a visual voice.', features: ['Half-day creative session', '30 edited brand or product images', 'Visual planning consultation', 'Web & social-ready exports'] },
+  { id: 'film', name: 'Cinematic film', category: 'Videography', price: 35000, description: 'A story that moves people.', features: ['Half-day filming session', '60–90 second edited film', 'Colour grading & licensed soundtrack', 'One revision round'] },
+  { id: 'custom', name: 'Something different', category: 'Bespoke', price: null, description: 'A creative idea without a template.', features: ['Travel & documentary projects', 'Music videos & creative direction', 'Tailored coverage and deliverables', 'A quote built around your brief'] },
+] as const;
+export const formatPrice = (price: number | null) => price === null ? 'Let’s discuss' : `KES ${price.toLocaleString('en-KE')}`;
