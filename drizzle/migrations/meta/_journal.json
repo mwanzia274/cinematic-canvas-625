@@ -8,6 +8,13 @@
       "when": 1791544498132,
       "tag": "0000_create_pixel_booking_requests",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1791616467179,
+      "tag": "0001_extend_official_booking_packages",
+      "breakpoints": true
     }
   ]
 }
