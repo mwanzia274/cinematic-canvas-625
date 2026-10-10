@@ -15,3 +15,6 @@
 - Booking receipts mean requested, not confirmed, and must not imply that a date is reserved, a payment collected, or an email sent.
 - Keep package definitions in one client-safe catalog shared by the package display and booking flow so labels stay consistent.
 - Label the bundled image montage as a mood reel, not a client film, because it is concept imagery.
+
+- Derive booking package validation from the shared catalog; preserve historical database package identifiers when extending choices so existing requests remain valid.
+- Serve supplied quotations and extracted logo through asset pointers, with a small local favicon derived from the same logo, to keep binary branding consistent.
