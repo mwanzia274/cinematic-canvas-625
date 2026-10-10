@@ -1,0 +1,2 @@
+ALTER TABLE public.booking_requests DROP CONSTRAINT booking_requests_package_id_check;
+ALTER TABLE public.booking_requests ADD CONSTRAINT booking_requests_package_id_check CHECK (package_id IN ('portrait','wedding','events','brand','film','custom','wedding-gold','wedding-silver','wedding-bronze','funeral-premium','funeral-classic','funeral-photos','church','corporate','music'));

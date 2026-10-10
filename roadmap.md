@@ -6,3 +6,6 @@
 - [x] Add sample service packages and clearly labelled sample testimonials.
 - [x] Replace brief downloads with a persistent client booking request flow.
 - [x] Verify booking submission, privacy, and desktop/mobile presentation.
+- [ ] Replace sample identity and services with supplied PSM logo, contacts and quotation packages.
+- [ ] Align booking options and payment terms with official quotations.
+- [ ] Verify the updated packages, contact links and booking flow.
