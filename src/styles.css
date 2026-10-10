@@ -195,6 +195,31 @@ html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 .field { display: grid; gap: 7px; font-size: 12px; }
 .field input, .field select, .field textarea { width: 100%; border: 1px solid var(--border); background: var(--background); border-radius: 4px; padding: 11px; color: var(--foreground); outline-color: var(--primary); }
 .reveal { animation: appear .9s ease-out both; }
+.packages-section { padding-block: 75px; }
+.packages-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.package-card { border: 1px solid var(--border); border-radius: 6px; padding: 28px; display: flex; flex-direction: column; }
+.package-card h3 { font-family: var(--font-display); font-size: 26px; margin-block: 18px 8px; }
+.package-price { font-size: 24px; font-weight: 600; margin-block: 25px; }
+.package-card ul { display: grid; gap: 13px; margin-bottom: 30px; }
+.package-card li { display: flex; align-items: start; gap: 10px; font-size: 11px; line-height: 1.7; color: var(--muted-foreground); }
+.testimonials-section { background: var(--secondary); padding-block: 65px; }
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+.testimonial blockquote { font-family: var(--font-display); font-size: 23px; line-height: 1.5; }
+.testimonial figcaption { display: flex; gap: 12px; align-items: center; margin-top: 25px; }
+.testimonial-avatar { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 50%; font-size: 12px; }
+.booking-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-block: 1px solid var(--border); padding-block: 17px; gap: 10px; }
+.booking-steps li { display: flex; gap: 8px; align-items: center; color: var(--muted-foreground); font-size: 10px; }
+.booking-steps li span { width: 23px; height: 23px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--border); flex-shrink: 0; }
+.booking-steps li[data-active=true] { color: var(--foreground); }
+.booking-steps li[data-active=true] span { background: var(--primary); border-color: var(--primary); }
+.booking-package-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.booking-package-option { display: flex; flex-direction: column; align-items: start; gap: 10px; height: auto; min-height: 86px; padding: 16px; border-radius: 5px; white-space: normal; text-align: left; }
+.booking-summary { display: grid; gap: 13px; }
+.booking-summary > div { display: grid; grid-template-columns: 125px minmax(0, 1fr); gap: 15px; font-size: 12px; line-height: 1.7; }
+.booking-summary dt { color: var(--muted-foreground); }
+.booking-summary dd { overflow-wrap: anywhere; }
+.booking-success-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--primary); display: grid; place-items: center; }
+@media (max-width: 800px) { .packages-grid, .testimonials-grid { grid-template-columns: 1fr; } .packages-section, .testimonials-section { padding-block: 45px; } .booking-dialog { width: calc(100% - 24px); } }
 @keyframes appear { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 @media (min-width: 1600px) { .hero { height: min(760px, 73svh); } }
 @media (max-width: 800px) {

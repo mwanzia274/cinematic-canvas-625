@@ -2,7 +2,7 @@
 - [x] Add generated concept imagery, project filters, image viewing, and a playable mood reel.
 - [x] Add an honest downloadable project enquiry brief.
 - [x] Verify the website and its main interactions.
-- [ ] Rename and personalize the site as Pixel in Nairobi.
-- [ ] Add sample service packages and clearly labelled sample testimonials.
-- [ ] Replace brief downloads with a persistent client booking request flow.
-- [ ] Verify booking submission, privacy, and desktop/mobile presentation.
+- [x] Rename and personalize the site as Pixel in Nairobi.
+- [x] Add sample service packages and clearly labelled sample testimonials.
+- [x] Replace brief downloads with a persistent client booking request flow.
+- [x] Verify booking submission, privacy, and desktop/mobile presentation.
