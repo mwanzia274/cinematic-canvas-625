@@ -23,6 +23,8 @@
   --font-display: "DM Serif Display", Georgia, serif;
   --color-hero-foreground: var(--hero-foreground);
   --color-scrim: var(--scrim);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-foreground: var(--whatsapp-foreground);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -69,6 +71,8 @@
   --radius: 0.5rem;
   --hero-foreground: oklch(0.99 0.003 100);
   --scrim: oklch(0.15 0.015 150);
+  --whatsapp: oklch(0.51 0.11 155);
+  --whatsapp-foreground: oklch(0.99 0.003 100);
   --background: oklch(0.985 0 0);
   --foreground: oklch(0.23 0.012 150);
   --card: oklch(1 0 0);
