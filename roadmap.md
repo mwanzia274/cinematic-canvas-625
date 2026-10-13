@@ -9,3 +9,4 @@
 - [x] Replace sample identity and services with supplied PSM logo, contacts and quotation packages.
 - [x] Align booking options and payment terms with official quotations.
 - [x] Verify the updated packages, contact links and booking flow.
+- [x] Add a Chat on WhatsApp button linking to +254 796 076 364.
