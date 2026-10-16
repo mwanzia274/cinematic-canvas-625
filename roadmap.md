@@ -10,3 +10,4 @@
 - [x] Align booking options and payment terms with official quotations.
 - [x] Verify the updated packages, contact links and booking flow.
 - [x] Add a Chat on WhatsApp button linking to +254 796 076 364.
+- [x] Add all nine supplied photos to the portfolio and main image, and verify photo viewing and filters.
