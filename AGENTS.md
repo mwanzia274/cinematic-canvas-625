@@ -18,3 +18,4 @@
 
 - Derive booking package validation from the shared catalog; preserve historical database package identifiers when extending choices so existing requests remain valid.
 - Serve supplied quotations and extracted logo through asset pointers, with a small local favicon derived from the same logo, to keep binary branding consistent.
+- Serve uploaded portfolio photos through asset pointers and preserve their landscape proportions in the gallery so event compositions remain visible.
