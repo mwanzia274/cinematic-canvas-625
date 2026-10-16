@@ -11,3 +11,4 @@
 - [x] Verify the updated packages, contact links and booking flow.
 - [x] Add a Chat on WhatsApp button linking to +254 796 076 364.
 - [x] Add all nine supplied photos to the portfolio and main image, and verify photo viewing and filters.
+- [x] Add the supplied livestream control-room photo to the portfolio with a Livestreaming filter.

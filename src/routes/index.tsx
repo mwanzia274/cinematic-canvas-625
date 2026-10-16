@@ -14,6 +14,7 @@ import reception from "@/assets/pixel-IMG_6781.jpg.asset.json";
 import table from "@/assets/pixel-IMG_6778.jpg.asset.json";
 import company from "@/assets/pixel-IMG_6777.jpg.asset.json";
 import logo from "@/assets/pixel-psm-logo.png.asset.json";
+import livestream from "@/assets/pixel-livestream.png.asset.json";
 import { PixelOfferings } from "@/components/pixel-offerings";
 import { BookingDialog } from "@/components/booking-dialog";
 import { WhatsAppFloat, WhatsAppButton } from "@/components/whatsapp-button";
@@ -31,15 +32,16 @@ export const Route = createFileRoute("/")({
 });
 
 const projects = [
-  { title: "A moment to celebrate", category: "Events", medium: "Photography", image: celebration.url, description: "Friends and family gathered around a car decorated with gold and black balloons." },
-  { title: "An arrival to remember", category: "Events", medium: "Photography", image: arrival.url, description: "A gathering around a red car, decorated with a gold ribbon." },
-  { title: "Together in the moment", category: "Events", medium: "Photography", image: gathering.url, description: "Guests sharing a moment beneath the colourful event canopy." },
-  { title: "Behind the lens", category: "Behind the scenes", medium: "Photography", image: photographer.url, description: "A photographer capturing the gathering, surrounded by guests and floral table arrangements." },
-  { title: "Good company", category: "Events", medium: "Photography", image: guests.url, description: "Guests enjoying conversation beside the reception buffet." },
-  { title: "Ready to serve", category: "Details", medium: "Photography", image: catering.url, description: "The catering team preparing to serve at the reception." },
-  { title: "Every detail matters", category: "Details", medium: "Photography", image: reception.url, description: "Gold drapery, fresh flowers and a carefully arranged reception buffet." },
-  { title: "Around the table", category: "Events", medium: "Photography", image: table.url, description: "A shared table with red roses, gold accents and guests gathered together." },
-  { title: "Shared occasions", category: "Events", medium: "Photography", image: company.url, description: "Guests seated around a reception table decorated with red flowers." },
+  { title: "Live from the control room", category: "Livestreaming", medium: "Multi-camera broadcast", image: livestream.url, width: 1448, height: 1086, description: "The studio’s live production desk during a church service — vision mixing, audio and the program feed running live." },
+  { title: "A moment to celebrate", category: "Events", medium: "Photography", image: celebration.url, width: 1920, height: 1280, description: "Friends and family gathered around a car decorated with gold and black balloons." },
+  { title: "An arrival to remember", category: "Events", medium: "Photography", image: arrival.url, width: 1920, height: 1280, description: "A gathering around a red car, decorated with a gold ribbon." },
+  { title: "Together in the moment", category: "Events", medium: "Photography", image: gathering.url, width: 1920, height: 1280, description: "Guests sharing a moment beneath the colourful event canopy." },
+  { title: "Behind the lens", category: "Behind the scenes", medium: "Photography", image: photographer.url, width: 1920, height: 1280, description: "A photographer capturing the gathering, surrounded by guests and floral table arrangements." },
+  { title: "Good company", category: "Events", medium: "Photography", image: guests.url, width: 1920, height: 1280, description: "Guests enjoying conversation beside the reception buffet." },
+  { title: "Ready to serve", category: "Details", medium: "Photography", image: catering.url, width: 1920, height: 1280, description: "The catering team preparing to serve at the reception." },
+  { title: "Every detail matters", category: "Details", medium: "Photography", image: reception.url, width: 1920, height: 1280, description: "Gold drapery, fresh flowers and a carefully arranged reception buffet." },
+  { title: "Around the table", category: "Events", medium: "Photography", image: table.url, width: 1920, height: 1280, description: "A shared table with red roses, gold accents and guests gathered together." },
+  { title: "Shared occasions", category: "Events", medium: "Photography", image: company.url, width: 1920, height: 1280, description: "Guests seated around a reception table decorated with red flowers." },
 ];
 
 function Index() {
@@ -80,8 +82,8 @@ function Index() {
         <p>We’re Pixel Sounds Media, based in Nairobi, Kenya. We capture wedding stories through photography and film, connect families and audiences through funeral, church and corporate livestreaming, and bring artists’ visions to life through music shoots.</p>
       </section>
       <section id="work" className="studio-container work-section">
-        <div className="work-top"><div><p className="eyebrow text-muted-foreground mb-3">Moments, people & details</p><h2 className="section-heading">Selected work<span className="text-primary">.</span></h2></div><div className="flex flex-wrap gap-2" aria-label="Filter projects">{["All work", "Events", "Details", "Behind the scenes"].map(item => <Button key={item} variant="filter" data-active={filter === item} aria-pressed={filter === item} className="text-[10px] h-8 px-4" onClick={() => setFilter(item)}>{item}</Button>)}</div></div>
-        <div className="project-grid">{projects.map((item, index) => (filter === "All work" || filter === item.category) && <Button variant="project" key={item.title} className="project-card h-auto" onClick={() => setProject(index)} aria-label={`View ${item.title}`}><div className="project-image-wrap"><img src={item.image} alt={item.description} width={1920} height={1280} loading="lazy" /><span className="project-open"><ArrowUpRight /></span></div><div className="project-details"><div><h3>{item.title}</h3><p>{item.category} <span className="mx-2">/</span> {item.medium}</p></div><span className="text-[10px] text-muted-foreground">0{index + 1}</span></div></Button>)}</div>
+        <div className="work-top"><div><p className="eyebrow text-muted-foreground mb-3">Moments, people & details</p><h2 className="section-heading">Selected work<span className="text-primary">.</span></h2></div><div className="flex flex-wrap gap-2" aria-label="Filter projects">{["All work", "Livestreaming", "Events", "Details", "Behind the scenes"].map(item => <Button key={item} variant="filter" data-active={filter === item} aria-pressed={filter === item} className="text-[10px] h-8 px-4" onClick={() => setFilter(item)}>{item}</Button>)}</div></div>
+        <div className="project-grid">{projects.map((item, index) => (filter === "All work" || filter === item.category) && <Button variant="project" key={item.title} className="project-card h-auto" onClick={() => setProject(index)} aria-label={`View ${item.title}`}><div className="project-image-wrap"><img src={item.image} alt={item.description} width={item.width} height={item.height} loading="lazy" /><span className="project-open"><ArrowUpRight /></span></div><div className="project-details"><div><h3>{item.title}</h3><p>{item.category} <span className="mx-2">/</span> {item.medium}</p></div><span className="text-[10px] text-muted-foreground">{String(index + 1).padStart(2, "0")}</span></div></Button>)}</div>
       </section>
       <section id="services" className="service-section"><div className="studio-container service-grid"><div><p className="eyebrow text-muted-foreground mb-4">What we do</p><h2 className="section-heading">Your story.<br />Our perspective.</h2><p className="text-xs leading-7 text-muted-foreground mt-5 max-w-64">Thoughtfully crafted visuals, from the first conversation to the final frame.</p></div><div>{[
         ["01", "Livestreaming", "Funerals, church services and corporate events. Respectful, professional coverage that connects your audience wherever they are.", Radio],
@@ -95,7 +97,7 @@ function Index() {
 
     <WhatsAppFloat />
     <Dialog open={reel} onOpenChange={setReel}><DialogContent className="max-w-4xl"><DialogTitle>Pixel Sounds Media — mood reel</DialogTitle><DialogDescription>A visual collection of the studio’s creative direction.</DialogDescription><video controls autoPlay playsInline poster={savannah} className="w-full aspect-video"><source src="/media/mood-reel.webm" type="video/webm" /><source src="/media/mood-reel.mp4" type="video/mp4" /></video><p className="text-xs text-muted-foreground">Concept imagery · Photography montage</p></DialogContent></Dialog>
-    <Dialog open={project !== null} onOpenChange={open => { if (!open) setProject(null); }}><DialogContent className="max-w-3xl max-h-[90svh] overflow-y-auto">{selected && <><DialogTitle>{selected.title}</DialogTitle><DialogDescription>{selected.category} / {selected.medium}</DialogDescription><img src={selected.image} alt={selected.description} width={1920} height={1280} className="w-full max-h-[57svh] object-contain" /><div className="flex items-center gap-5"><Button variant="outline" size="icon" aria-label="Previous project" onClick={() => setProject(((project ?? 0) + projects.length - 1) % projects.length)}><ChevronLeft /></Button><p className="text-xs leading-6 flex-1 text-muted-foreground">{selected.description}</p><Button variant="outline" size="icon" aria-label="Next project" onClick={() => setProject(((project ?? 0) + 1) % projects.length)}><ChevronRight /></Button></div></>}</DialogContent></Dialog>
+    <Dialog open={project !== null} onOpenChange={open => { if (!open) setProject(null); }}><DialogContent className="max-w-3xl max-h-[90svh] overflow-y-auto">{selected && <><DialogTitle>{selected.title}</DialogTitle><DialogDescription>{selected.category} / {selected.medium}</DialogDescription><img src={selected.image} alt={selected.description} width={selected.width} height={selected.height} className="w-full max-h-[57svh] object-contain" /><div className="flex items-center gap-5"><Button variant="outline" size="icon" aria-label="Previous project" onClick={() => setProject(((project ?? 0) + projects.length - 1) % projects.length)}><ChevronLeft /></Button><p className="text-xs leading-6 flex-1 text-muted-foreground">{selected.description}</p><Button variant="outline" size="icon" aria-label="Next project" onClick={() => setProject(((project ?? 0) + 1) % projects.length)}><ChevronRight /></Button></div></>}</DialogContent></Dialog>
     <BookingDialog open={enquiry} onOpenChange={setEnquiry} initialPackage={bookingPackage} />
   </>;
 }
