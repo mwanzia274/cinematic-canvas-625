@@ -4,17 +4,13 @@ import { ArrowUpRight, ArrowDown, Play, Menu, X, Camera, Film, Radio, Music, Mai
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import savannah from "@/assets/savannah.jpg";
-import celebration from "@/assets/pixel-IMG_5556.jpg.asset.json";
-import arrival from "@/assets/pixel-IMG_5558.jpg.asset.json";
-import gathering from "@/assets/pixel-IMG_6831.jpg.asset.json";
-import photographer from "@/assets/pixel-IMG_6807.jpg.asset.json";
-import guests from "@/assets/pixel-IMG_6789.jpg.asset.json";
-import catering from "@/assets/pixel-IMG_6788.jpg.asset.json";
 import reception from "@/assets/pixel-IMG_6781.jpg.asset.json";
-import table from "@/assets/pixel-IMG_6778.jpg.asset.json";
-import company from "@/assets/pixel-IMG_6777.jpg.asset.json";
-import logo from "@/assets/pixel-psm-logo.png.asset.json";
-import livestream from "@/assets/pixel-livestream.png.asset.json";
+import logo from "@/assets/pixel-logo-mark.png.asset.json";
+import { portfolio } from "@/lib/pixel-portfolio";
+import trailer from "@/assets/pixel-trailer-web.mp4.asset.json";
+import trailerWebm from "@/assets/pixel-trailer.webm.asset.json";
+import trailerPoster from "@/assets/pixel-trailer-poster.jpg.asset.json";
+import { ShootInquiry } from "@/components/shoot-inquiry";
 import { PixelOfferings } from "@/components/pixel-offerings";
 import { BookingDialog } from "@/components/booking-dialog";
 import { WhatsAppFloat, WhatsAppButton } from "@/components/whatsapp-button";
@@ -31,21 +27,12 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const projects = [
-  { title: "Live from the control room", category: "Livestreaming", medium: "Multi-camera broadcast", image: livestream.url, width: 1448, height: 1086, description: "The studio’s live production desk during a church service — vision mixing, audio and the program feed running live." },
-  { title: "A moment to celebrate", category: "Events", medium: "Photography", image: celebration.url, width: 1920, height: 1280, description: "Friends and family gathered around a car decorated with gold and black balloons." },
-  { title: "An arrival to remember", category: "Events", medium: "Photography", image: arrival.url, width: 1920, height: 1280, description: "A gathering around a red car, decorated with a gold ribbon." },
-  { title: "Together in the moment", category: "Events", medium: "Photography", image: gathering.url, width: 1920, height: 1280, description: "Guests sharing a moment beneath the colourful event canopy." },
-  { title: "Behind the lens", category: "Behind the scenes", medium: "Photography", image: photographer.url, width: 1920, height: 1280, description: "A photographer capturing the gathering, surrounded by guests and floral table arrangements." },
-  { title: "Good company", category: "Events", medium: "Photography", image: guests.url, width: 1920, height: 1280, description: "Guests enjoying conversation beside the reception buffet." },
-  { title: "Ready to serve", category: "Details", medium: "Photography", image: catering.url, width: 1920, height: 1280, description: "The catering team preparing to serve at the reception." },
-  { title: "Every detail matters", category: "Details", medium: "Photography", image: reception.url, width: 1920, height: 1280, description: "Gold drapery, fresh flowers and a carefully arranged reception buffet." },
-  { title: "Around the table", category: "Events", medium: "Photography", image: table.url, width: 1920, height: 1280, description: "A shared table with red roses, gold accents and guests gathered together." },
-  { title: "Shared occasions", category: "Events", medium: "Photography", image: company.url, width: 1920, height: 1280, description: "Guests seated around a reception table decorated with red flowers." },
-];
+const projects = portfolio;
 
 function Index() {
   const [filter, setFilter] = useState("All work");
+  const [imageIndex, setImageIndex] = useState(0);
+  const [inspiration, setInspiration] = useState("");
   const [project, setProject] = useState<number | null>(null);
   const [reel, setReel] = useState(false);
   const [enquiry, setEnquiry] = useState(false);
@@ -53,6 +40,7 @@ function Index() {
   const [bookingPackage, setBookingPackage] = useState("wedding-gold");
   const book = (id: string) => { setBookingPackage(id); setEnquiry(true); };
   const selected = project === null ? null : projects[project];
+  const selectedImage = selected?.images[imageIndex];
 
   return <>
     <header className="studio-container studio-header">
@@ -73,7 +61,7 @@ function Index() {
           <h1 className="hero-title">PIXEL<span className="hero-brand-detail">SOUNDS MEDIA</span></h1>
           <p className="hero-subtitle">Life, beautifully captured.</p>
           <p className="hero-copy">Weddings, livestreams and music shoots.<br />Your moments, shared and remembered.</p>
-          <div className="flex gap-3"><Button variant="studio" size="lg" asChild className="h-11 text-[11px] px-6"><a href="#work">Explore our work <ArrowUpRight /></a></Button><Button variant="glass" size="lg" className="h-11 text-[11px] px-6" onClick={() => setReel(true)}><Play className="size-3" />Watch mood reel</Button></div>
+          <div className="flex gap-3"><Button variant="studio" size="lg" asChild className="h-11 text-[11px] px-6"><a href="#work">Explore our work <ArrowUpRight /></a></Button><Button variant="glass" size="lg" className="h-11 text-[11px] px-6" asChild><a href="#film"><Play className="size-3" />Watch trailer</a></Button></div>
         </div>
         <div className="hero-bottom studio-container"><p className="eyebrow">A different way of seeing.</p><Button variant="glass" size="icon" className="border-0" asChild aria-label="Discover the studio"><a href="#about"><ArrowDown /></a></Button><p className="eyebrow"><span className="status-dot" />Let’s create something</p></div>
       </section>
@@ -82,22 +70,24 @@ function Index() {
         <p>We’re Pixel Sounds Media, based in Nairobi, Kenya. We capture wedding stories through photography and film, connect families and audiences through funeral, church and corporate livestreaming, and bring artists’ visions to life through music shoots.</p>
       </section>
       <section id="work" className="studio-container work-section">
-        <div className="work-top"><div><p className="eyebrow text-muted-foreground mb-3">Moments, people & details</p><h2 className="section-heading">Selected work<span className="text-primary">.</span></h2></div><div className="flex flex-wrap gap-2" aria-label="Filter projects">{["All work", "Livestreaming", "Events", "Details", "Behind the scenes"].map(item => <Button key={item} variant="filter" data-active={filter === item} aria-pressed={filter === item} className="text-[10px] h-8 px-4" onClick={() => setFilter(item)}>{item}</Button>)}</div></div>
-        <div className="project-grid">{projects.map((item, index) => (filter === "All work" || filter === item.category) && <Button variant="project" key={item.title} className="project-card h-auto" onClick={() => setProject(index)} aria-label={`View ${item.title}`}><div className="project-image-wrap"><img src={item.image} alt={item.description} width={item.width} height={item.height} loading="lazy" /><span className="project-open"><ArrowUpRight /></span></div><div className="project-details"><div><h3>{item.title}</h3><p>{item.category} <span className="mx-2">/</span> {item.medium}</p></div><span className="text-[10px] text-muted-foreground">{String(index + 1).padStart(2, "0")}</span></div></Button>)}</div>
+        <div className="work-top"><div><p className="eyebrow text-muted-foreground mb-3">Moments, people & details</p><h2 className="section-heading">Selected work<span className="text-primary">.</span></h2></div><div className="flex flex-wrap gap-2" aria-label="Filter projects">{["All work", "Livestreaming", "Events", "Details"].map(item => <Button key={item} variant="filter" data-active={filter === item} aria-pressed={filter === item} className="text-[10px] h-8 px-4" onClick={() => setFilter(item)}>{item}</Button>)}</div></div>
+        <p className="text-xs text-muted-foreground mb-6">Photo collections · Event and client names are not published.</p>
+        <div className="project-grid">{projects.map((item, index) => (filter === "All work" || filter === item.category) && <Button variant="project" key={item.id} className="project-card h-auto" onClick={() => { setProject(index); setImageIndex(0); }} aria-label={`View ${item.title}`}><div className="project-image-wrap"><img src={item.images[0].src} alt={item.images[0].caption} width={item.images[0].width} height={item.images[0].height} loading="lazy" /><span className="project-open"><ArrowUpRight /></span></div><div className="project-details"><div><h3>{item.title}</h3><p>{item.category} <span className="mx-2">/</span> {item.images.length} {item.images.length === 1 ? "image" : "images"}</p></div><span className="text-[10px] text-muted-foreground">{String(index + 1).padStart(2, "0")}</span></div></Button>)}</div>
       </section>
+      <section id="film" className="studio-container film-section"><div className="work-top"><div><p className="eyebrow text-muted-foreground mb-3">Pixel Sounds Media · Film</p><h2 className="section-heading">Event trailer<span className="text-primary">.</span></h2></div><Button variant="link" onClick={() => setReel(true)}>Watch concept mood reel <Play /></Button></div><video controls playsInline preload="metadata" poster={trailerPoster.url} className="w-full aspect-video" aria-label="Pixel Sounds Media event trailer"><source src={trailerWebm.url} type="video/webm" /><source src={trailer.url} type="video/mp4" /></video><div className="flex flex-wrap items-center justify-between gap-4 mt-5"><p className="text-xs text-muted-foreground">Event videography · 1 min 46 sec</p><Button variant="studio" asChild><a href="#contact" onClick={() => setInspiration("the event trailer")}>Enquire about event coverage <ArrowUpRight /></a></Button></div></section>
       <section id="services" className="service-section"><div className="studio-container service-grid"><div><p className="eyebrow text-muted-foreground mb-4">What we do</p><h2 className="section-heading">Your story.<br />Our perspective.</h2><p className="text-xs leading-7 text-muted-foreground mt-5 max-w-64">Thoughtfully crafted visuals, from the first conversation to the final frame.</p></div><div>{[
         ["01", "Livestreaming", "Funerals, church services and corporate events. Respectful, professional coverage that connects your audience wherever they are.", Radio],
         ["02", "Wedding photography & videography", "Gold, Silver and Bronze packages combining wedding photography, cinematic films, photobooks and printed memories.", Camera],
         ["03", "Music shoots", "Photography and music video enquiries built around your sound and creative vision. Contact us for a personalised production quotation.", Music],
       ].map(([number, title, text, Icon]) => { const ServiceIcon = Icon as typeof Camera; return <div className="service-row" key={String(number)}><span className="text-[10px] text-muted-foreground mt-1">{String(number)}</span><div><h3>{String(title)}</h3><p>{String(text)}</p></div><ServiceIcon className="size-5" /></div>; })}</div></div></section>
       <PixelOfferings onBook={book} />
-      <section id="contact" className="contact-section studio-container"><p className="eyebrow text-muted-foreground">Every great story starts with a conversation</p><h2>Let’s make something<br /><span className="italic">worth remembering.</span></h2><p className="text-xs text-muted-foreground mb-6">Nairobi, Kenya · Weddings, livestreaming & music shoots</p><div className="contact-links"><Button variant="link" asChild><a href="mailto:pixelsoundsmedia01@gmail.com"><Mail />pixelsoundsmedia01@gmail.com</a></Button><div><Button variant="link" asChild><a href="tel:+254796076364"><Phone />0796 076 364</a></Button><Button variant="link" asChild><a href="tel:+254702926220"><Phone />0702 926 220</a></Button></div></div><div className="flex flex-wrap justify-center gap-3"><Button variant="studio" size="lg" className="h-12 text-xs" onClick={() => book("wedding-gold")}>Request your shoot <ArrowUpRight /></Button><WhatsAppButton className="h-12 text-xs px-6" /></div></section>
+      <section id="contact" className="studio-container contact-section inquiry-section"><div className="inquiry-layout"><div className="inquiry-intro"><p className="eyebrow text-muted-foreground">Start a conversation</p><h2>Shoot enquiry<span className="text-primary">.</span></h2><p className="text-sm text-muted-foreground leading-7 mb-6">Weddings, livestreaming & music shoots.<br />Nairobi, Kenya.</p><div className="contact-links"><Button variant="link" asChild><a href="mailto:pixelsoundsmedia01@gmail.com"><Mail />pixelsoundsmedia01@gmail.com</a></Button><div><Button variant="link" asChild><a href="tel:+254796076364"><Phone />0796 076 364</a></Button><Button variant="link" asChild><a href="tel:+254702926220"><Phone />0702 926 220</a></Button></div></div><WhatsAppButton className="h-12 text-xs px-6" /></div><ShootInquiry inspiration={inspiration} /></div></section>
     </main>
     <footer className="studio-container studio-footer"><a href="#" className="wordmark text-foreground text-lg"><img src={logo.url} alt="Pixel Sounds Media PSM logo" className="studio-logo" /></a><p>Photography with feeling. Films with soul.</p><p>© 2026 Pixel Sounds Media</p></footer>
 
     <WhatsAppFloat />
     <Dialog open={reel} onOpenChange={setReel}><DialogContent className="max-w-4xl"><DialogTitle>Pixel Sounds Media — mood reel</DialogTitle><DialogDescription>A visual collection of the studio’s creative direction.</DialogDescription><video controls autoPlay playsInline poster={savannah} className="w-full aspect-video"><source src="/media/mood-reel.webm" type="video/webm" /><source src="/media/mood-reel.mp4" type="video/mp4" /></video><p className="text-xs text-muted-foreground">Concept imagery · Photography montage</p></DialogContent></Dialog>
-    <Dialog open={project !== null} onOpenChange={open => { if (!open) setProject(null); }}><DialogContent className="max-w-3xl max-h-[90svh] overflow-y-auto">{selected && <><DialogTitle>{selected.title}</DialogTitle><DialogDescription>{selected.category} / {selected.medium}</DialogDescription><img src={selected.image} alt={selected.description} width={selected.width} height={selected.height} className="w-full max-h-[57svh] object-contain" /><div className="flex items-center gap-5"><Button variant="outline" size="icon" aria-label="Previous project" onClick={() => setProject(((project ?? 0) + projects.length - 1) % projects.length)}><ChevronLeft /></Button><p className="text-xs leading-6 flex-1 text-muted-foreground">{selected.description}</p><Button variant="outline" size="icon" aria-label="Next project" onClick={() => setProject(((project ?? 0) + 1) % projects.length)}><ChevronRight /></Button></div></>}</DialogContent></Dialog>
+    <Dialog open={project !== null} onOpenChange={open => { if (!open) setProject(null); }}><DialogContent className="max-w-3xl max-h-[90svh] overflow-y-auto">{selected && selectedImage && <><DialogTitle className="font-display text-3xl">{selected.title}</DialogTitle><DialogDescription>{selected.category} / {selected.medium}</DialogDescription><img src={selectedImage.src} alt={selectedImage.caption} width={selectedImage.width} height={selectedImage.height} className="w-full max-h-[45svh] object-contain" /><div className="flex items-center justify-between gap-4"><Button variant="outline" size="icon" aria-label="Previous photo" disabled={selected.images.length < 2} onClick={() => setImageIndex((imageIndex + selected.images.length - 1) % selected.images.length)}><ChevronLeft /></Button><p className="text-xs text-muted-foreground text-center">{selectedImage.caption}<span className="block mt-2">{imageIndex + 1} / {selected.images.length}</span></p><Button variant="outline" size="icon" aria-label="Next photo" disabled={selected.images.length < 2} onClick={() => setImageIndex((imageIndex + 1) % selected.images.length)}><ChevronRight /></Button></div><p className="text-sm leading-7">{selected.summary}</p><dl className="project-facts"><div><dt>Collection</dt><dd>{selected.images.length} supplied {selected.images.length === 1 ? "image" : "images"}</dd></div><div><dt>Visual focus</dt><dd>{selected.focus}</dd></div></dl><Button variant="studio" asChild><a href="#contact" onClick={() => { setInspiration(selected.title); setProject(null); }}>Enquire about a similar shoot <ArrowUpRight /></a></Button></>}</DialogContent></Dialog>
     <BookingDialog open={enquiry} onOpenChange={setEnquiry} initialPackage={bookingPackage} />
   </>;
 }

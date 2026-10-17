@@ -12,6 +12,7 @@
 - [x] Add a Chat on WhatsApp button linking to +254 796 076 364.
 - [x] Add all nine supplied photos to the portfolio and main image, and verify photo viewing and filters.
 - [x] Add the supplied livestream control-room photo to the portfolio with a Livestreaming filter.
-- [ ] Curate supplied photos into portfolio collections with honest project details.
-- [ ] Add an inline shoot enquiry form and connect project enquiries to it.
-- [ ] Verify project browsing and a saved shoot enquiry on desktop and mobile.
+- [x] Curate supplied photos into portfolio collections with honest project details.
+- [x] Add an inline shoot enquiry form and connect project enquiries to it.
+- [x] Verify project browsing and a saved shoot enquiry on desktop and mobile.
+- [x] Replace the logo and favicon with the newly supplied logo and add the supplied trailer video.
