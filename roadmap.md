@@ -15,3 +15,4 @@
 - [ ] Curate supplied photos into portfolio collections with honest project details.
 - [ ] Add an inline shoot enquiry form and connect project enquiries to it.
 - [ ] Verify project browsing and a saved shoot enquiry on desktop and mobile.
+- [ ] Replace the logo and favicon with the newly supplied logo and add the supplied trailer video.
