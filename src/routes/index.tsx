@@ -7,7 +7,7 @@ import savannah from "@/assets/savannah.jpg";
 import reception from "@/assets/pixel-IMG_6781.jpg.asset.json";
 import logo from "@/assets/pixel-logo-mark.png.asset.json";
 import { portfolio } from "@/lib/pixel-portfolio";
-import trailer from "@/assets/pixel-trailer.mp4.asset.json";
+import trailer from "@/assets/pixel-trailer-web.mp4.asset.json";
 import trailerPoster from "@/assets/pixel-trailer-poster.jpg.asset.json";
 import { ShootInquiry } from "@/components/shoot-inquiry";
 import { PixelOfferings } from "@/components/pixel-offerings";
