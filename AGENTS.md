@@ -21,3 +21,4 @@
 - Serve uploaded portfolio photos through asset pointers and preserve their landscape proportions in the gallery so event compositions remain visible.
 - Keep curated photo collections in a client-safe portfolio catalog, describing only visible subjects rather than inventing client identities or event facts.
 - Use the shared booking validation and submission flow for inline shoot enquiries so privacy and receipt meaning remain consistent with package requests.
+- Serve supplied films through asset pointers with WebM and fast-start MP4 sources so playback works across browsers without bundling large media.
