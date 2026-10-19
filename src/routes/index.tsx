@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import savannah from "@/assets/savannah.jpg";
 import reception from "@/assets/pixel-IMG_6781.jpg.asset.json";
-import logo from "@/assets/pixel-logo-mark.png.asset.json";
+import logo from "@/assets/pixel-logo-lockup.png.asset.json";
 import { portfolio } from "@/lib/pixel-portfolio";
 import trailer from "@/assets/pixel-trailer-web.mp4.asset.json";
 import trailerWebm from "@/assets/pixel-trailer.webm.asset.json";
@@ -50,7 +50,7 @@ function Index() {
 
   return <>
     <header className="studio-container studio-header">
-      <a href="#" className="wordmark" aria-label="Pixel Sounds Media home"><img src={logo.url} alt="Pixel Sounds Media PSM logo" className="studio-logo" /></a>
+      <a href="#" className="wordmark" aria-label="Pixel Sounds Media home"><img src={logo.url} alt="Pixel Sounds Media" className="studio-logo-lockup" /></a>
       <nav className="desktop-nav flex items-center gap-9 text-[11px] font-medium" aria-label="Main navigation">
         <Button variant="link" asChild className="text-foreground text-[11px] p-0"><a href="#work">Our work</a></Button>
         <Button variant="link" asChild className="text-foreground text-[11px] p-0"><a href="#about">The studio</a></Button>
@@ -90,7 +90,7 @@ function Index() {
       <PixelOfferings onBook={book} />
       <section id="contact" className="studio-container contact-section inquiry-section"><div className="inquiry-layout"><div className="inquiry-intro"><p className="eyebrow text-muted-foreground">Start a conversation</p><h2>Shoot enquiry<span className="text-primary">.</span></h2><p className="text-sm text-muted-foreground leading-7 mb-6">Weddings, livestreaming & music shoots.<br />Nairobi, Kenya.</p><div className="contact-links"><Button variant="link" asChild><a href="mailto:pixelsoundsmedia01@gmail.com"><Mail />pixelsoundsmedia01@gmail.com</a></Button><div><Button variant="link" asChild><a href="tel:+254796076364"><Phone />0796 076 364</a></Button><Button variant="link" asChild><a href="tel:+254702926220"><Phone />0702 926 220</a></Button></div></div><WhatsAppButton className="h-12 text-xs px-6" /></div><ShootInquiry inspiration={inspiration} /></div></section>
     </main>
-    <footer className="studio-container studio-footer"><a href="#" className="wordmark text-foreground text-lg"><img src={logo.url} alt="Pixel Sounds Media PSM logo" className="studio-logo" /></a><p>Photography with feeling. Films with soul.</p><p>© 2026 Pixel Sounds Media</p></footer>
+    <footer className="studio-container studio-footer"><a href="#" className="wordmark text-foreground text-lg"><img src={logo.url} alt="Pixel Sounds Media" className="studio-logo-lockup studio-logo-lockup--footer" /></a><p>Photography with feeling. Films with soul.</p><p>© 2026 Pixel Sounds Media</p></footer>
 
     <WhatsAppFloat />
     <Dialog open={reel} onOpenChange={setReel}><DialogContent className="max-w-4xl"><DialogTitle>Pixel Sounds Media — mood reel</DialogTitle><DialogDescription>A visual collection of the studio’s creative direction.</DialogDescription><video controls autoPlay playsInline poster={savannah} className="w-full aspect-video"><source src="/media/mood-reel.webm" type="video/webm" /><source src="/media/mood-reel.mp4" type="video/mp4" /></video><p className="text-xs text-muted-foreground">Concept imagery · Photography montage</p></DialogContent></Dialog>
