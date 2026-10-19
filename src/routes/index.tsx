@@ -65,7 +65,7 @@ function Index() {
         <div className="hero-content studio-container reveal">
           <p className="eyebrow flex items-center gap-3"><span className="w-6 h-px bg-hero-foreground/60" />Nairobi · Photography · Film · Livestreaming<span className="w-6 h-px bg-hero-foreground/60" /></p>
           <h1 className="hero-title">PIXEL<span className="hero-brand-detail">SOUNDS MEDIA</span></h1>
-          <p className="hero-subtitle">Life, beautifully captured.</p>
+          <p className="hero-subtitle">Transforming every moment into a masterpiece…</p>
           <p className="hero-copy">Weddings, livestreams and music shoots.<br />Your moments, shared and remembered.</p>
           <div className="flex gap-3"><Button variant="studio" size="lg" asChild className="h-11 text-[11px] px-6"><a href="#work">Explore our work <ArrowUpRight /></a></Button><Button variant="glass" size="lg" className="h-11 text-[11px] px-6" asChild><a href="#film"><Play className="size-3" />Watch trailer</a></Button></div>
         </div>
