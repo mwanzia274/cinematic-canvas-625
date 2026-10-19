@@ -14,6 +14,8 @@ import { ShootInquiry } from "@/components/shoot-inquiry";
 import { PixelOfferings } from "@/components/pixel-offerings";
 import { BookingDialog } from "@/components/booking-dialog";
 import { WhatsAppFloat, WhatsAppButton } from "@/components/whatsapp-button";
+import brian from "@/assets/pixel-brian.jpg.asset.json";
+import rodgers from "@/assets/pixel-rodgers.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
@@ -28,6 +30,10 @@ export const Route = createFileRoute("/")({
 });
 
 const projects = portfolio;
+const team = [
+  { name: "Brian", role: "Lead Director", focus: "Leadership and strategic direction", photo: brian.url, duties: ["Set PSM's vision, goals, and creative standards.", "Lead planning and decision-making.", "Oversee daily operations and project development.", "Ensure every project meets PSM's quality standards."] },
+  { name: "Rodgers", role: "Creative Director", focus: "Visual storytelling and artistic direction", photo: rodgers.url, duties: ["Develop concepts for videos, photography, and promotional content.", "Direct shoots and oversee storytelling, composition, and visual style.", "Maintain consistency in PSM's branding and creative identity.", "Review final edits before delivery to clients."] },
+];
 
 function Index() {
   const [filter, setFilter] = useState("All work");
@@ -69,6 +75,7 @@ function Index() {
         <h2>More than an image.<br />A feeling that stays with you.</h2>
         <p>We’re Pixel Sounds Media, based in Nairobi, Kenya. We capture wedding stories through photography and film, connect families and audiences through funeral, church and corporate livestreaming, and bring artists’ visions to life through music shoots.</p>
       </section>
+      <section id="team" className="studio-container team-section"><p className="eyebrow text-muted-foreground mb-3">The people behind PSM</p><h2 className="section-heading">Meet the team<span className="text-primary">.</span></h2><div className="team-grid">{team.map(m => <article key={m.name} className="team-card"><img src={m.photo} alt={`${m.name}, ${m.role}`} loading="lazy" /><div><h3>{m.name}</h3><p className="team-role">{m.role}</p><p className="team-focus">{m.focus}</p><ul>{m.duties.map(d => <li key={d}>{d}</li>)}</ul></div></article>)}</div></section>
       <section id="work" className="studio-container work-section">
         <div className="work-top"><div><p className="eyebrow text-muted-foreground mb-3">Moments, people & details</p><h2 className="section-heading">Selected work<span className="text-primary">.</span></h2></div><div className="flex flex-wrap gap-2" aria-label="Filter projects">{["All work", "Livestreaming", "Events", "Details"].map(item => <Button key={item} variant="filter" data-active={filter === item} aria-pressed={filter === item} className="text-[10px] h-8 px-4" onClick={() => setFilter(item)}>{item}</Button>)}</div></div>
         <p className="text-xs text-muted-foreground mb-6">Photo collections · Event and client names are not published.</p>

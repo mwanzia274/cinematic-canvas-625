@@ -177,6 +177,14 @@ html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 .intro { padding-block: 54px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 50px; }
 .intro h2 { font-family: var(--font-display); font-size: 32px; max-width: 490px; line-height: 1.3; }
 .intro p { max-width: 390px; font-size: 12px; line-height: 1.9; color: var(--muted-foreground); }
+.team-section { padding-block: 64px; border-bottom: 1px solid var(--border); }
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; margin-top: 32px; }
+.team-card { display: flex; flex-direction: column; gap: 18px; }
+.team-card img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; border-radius: var(--radius); }
+.team-card h3 { font-family: var(--font-display); font-size: 28px; }
+.team-role { color: var(--primary); font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; margin-top: 4px; }
+.team-focus { font-size: 13px; margin-top: 10px; }
+.team-card ul { margin-top: 12px; padding-left: 18px; list-style: disc; font-size: 12px; line-height: 1.9; color: var(--muted-foreground); }
 .section-heading { font-family: var(--font-display); font-size: 43px; line-height: 1.2; }
 .work-section { padding-block: 66px 75px; }
 .work-top { display: flex; justify-content: space-between; align-items: end; gap: 25px; margin-bottom: 32px; }
