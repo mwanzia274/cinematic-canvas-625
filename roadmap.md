@@ -16,3 +16,6 @@
 - [x] Add an inline shoot enquiry form and connect project enquiries to it.
 - [x] Verify project browsing and a saved shoot enquiry on desktop and mobile.
 - [x] Replace the logo and favicon with the newly supplied logo and add the supplied trailer video.
+- [x] Change the hero slogan to "Transforming every moment into a masterpiece…".
+- [x] Add a "Meet the team" section for Brian and Rodgers with their photos and duties.
+- [x] Show the supplied named logo (emblem + handwritten studio name) in the header and footer.
