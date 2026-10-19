@@ -22,3 +22,4 @@
 - Keep curated photo collections in a client-safe portfolio catalog, describing only visible subjects rather than inventing client identities or event facts.
 - Use the shared booking validation and submission flow for inline shoot enquiries so privacy and receipt meaning remain consistent with package requests.
 - Serve supplied films through asset pointers with WebM and fast-start MP4 sources so playback works across browsers without bundling large media.
+- Prepare brand marks by isolating the solid emblem with an image edit and lifting thin script lettering from the original separately with a saturation key, then compositing; hand-keying a whole lockup erases fine strokes and leaves glow residue.
