@@ -13,3 +13,11 @@ export const packages = [
   { id: 'music', name: 'Music shoots', category: 'Music videography & photography', group: 'other', price: null, description: 'Your sound. Your vision. Your story on screen.', terms: 'Scope and pricing agreed in your personalised quotation.', features: ['Music video & photography enquiries', 'Share your concept, location and production needs'] },
 ] as const;
 export const formatPrice = (price: number | null) => price === null ? 'Request a quote' : `KES ${price.toLocaleString('en-KE')}`;
+
+export const packageRecommendations = [
+  { occasion: 'Wedding', id: 'wedding-silver', reason: 'A balanced wedding collection with drone coverage, a cinematic trailer and a photobook.', alternative: 'Choose Gold for 4K films and two photographers, or Bronze for HD coverage at a lower price.' },
+  { occasion: 'Funeral', id: 'funeral-classic', reason: 'Livestreaming and photography together, with a dedicated vMix operator and 500+ edited photos.', alternative: 'Choose Premium for aerial coverage and 800+ edited photos, or Photos Only when no livestream is needed.' },
+  { occasion: 'Church', id: 'church', reason: 'A tailored livestream for your congregation, based on your venue and service schedule.', alternative: 'Tell us your streaming needs for an individual quotation.' },
+  { occasion: 'Corporate', id: 'corporate', reason: 'A tailored broadcast for your event and remote audience.', alternative: 'Share the event schedule, venue and streaming needs for a quotation.' },
+  { occasion: 'Music', id: 'music', reason: 'Photography and video built around your sound and creative concept.', alternative: 'Share your concept, locations and production needs for a quotation.' },
+] as const satisfies readonly { occasion: string; id: typeof packageIds[number]; reason: string; alternative: string }[];

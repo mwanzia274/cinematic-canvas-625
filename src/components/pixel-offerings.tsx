@@ -3,11 +3,13 @@ import { Button } from '@/components/ui/button';
 import weddingQuote from '@/assets/pixel-wedding-quotation.pdf.asset.json';
 import funeralQuote from '@/assets/pixel-funeral-quotation.pdf.asset.json';
 import { packages, formatPrice, weddingTerms, funeralTerms } from '@/lib/pixel-packages';
+import { PackageRecommendations } from '@/components/package-recommendations';
 
 export function PixelOfferings({ onBook }: { onBook: (id: string) => void }) {
   return <>
     <section id="packages" className="studio-container packages-section">
       <div className="work-top"><div><p className="eyebrow text-muted-foreground mb-3">Pixel Sounds Media quotations</p><h2 className="section-heading">Coverage for your occasion.</h2></div><p className="text-xs text-muted-foreground max-w-72 leading-6">Prices in Kenyan shillings. Select your package or request a personalised quote.</p></div>
+      <PackageRecommendations onBook={onBook} />
       {[
         { id: 'wedding', title: 'Wedding photography & videography', terms: weddingTerms, document: weddingQuote.url },
         { id: 'funeral', title: 'Funeral livestreaming & photography', terms: funeralTerms, document: funeralQuote.url },
