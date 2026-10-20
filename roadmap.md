@@ -19,3 +19,7 @@
 - [x] Change the hero slogan to "Transforming every moment into a masterpiece…".
 - [x] Add a "Meet the team" section for Brian and Rodgers with their photos and duties.
 - [x] Show the supplied named logo (emblem + handwritten studio name) in the header and footer.
+- [x] Recommend existing shoot packages and connect recommendations to the enquiry flow.
+- [x] Expand About Us and add accessible website animation.
+- [ ] Send enquiry notifications to pixelsoundsmedia01@gmail.com — blocked until an owned sender domain is configured.
+- [x] Verify recommendations, About Us and animation on desktop and mobile.

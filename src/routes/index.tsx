@@ -16,6 +16,7 @@ import { BookingDialog } from "@/components/booking-dialog";
 import { WhatsAppFloat, WhatsAppButton } from "@/components/whatsapp-button";
 import brian from "@/assets/pixel-brian.jpg.asset.json";
 import rodgers from "@/assets/pixel-rodgers.jpg.asset.json";
+import { useStudioMotion } from "@/hooks/use-studio-motion";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
@@ -36,6 +37,7 @@ const team = [
 ];
 
 function Index() {
+  useStudioMotion();
   const [filter, setFilter] = useState("All work");
   const [imageIndex, setImageIndex] = useState(0);
   const [inspiration, setInspiration] = useState("");
@@ -53,12 +55,12 @@ function Index() {
       <a href="#" className="wordmark" aria-label="Pixel Sounds Media home"><img src={logo.url} alt="Pixel Sounds Media" className="studio-logo-lockup" /></a>
       <nav className="desktop-nav flex items-center gap-9 text-[11px] font-medium" aria-label="Main navigation">
         <Button variant="link" asChild className="text-foreground text-[11px] p-0"><a href="#work">Our work</a></Button>
-        <Button variant="link" asChild className="text-foreground text-[11px] p-0"><a href="#about">The studio</a></Button>
+        <Button variant="link" asChild className="text-foreground text-[11px] p-0"><a href="#about">About us</a></Button>
         <Button variant="link" asChild className="text-foreground text-[11px] p-0"><a href="#packages">Packages</a></Button>
       </nav>
       <div className="flex items-center gap-2"><Button variant="studio" onClick={() => book("wedding-gold")} className="text-[11px] px-5 h-10">Book a shoot <ArrowUpRight /></Button><Button variant="ghost" size="icon" className="mobile-nav" aria-label={menu ? "Close menu" : "Open menu"} onClick={() => setMenu(!menu)}>{menu ? <X /> : <Menu />}</Button></div>
     </header>
-    {menu && <nav className="mobile-nav flex-col border-t border-border px-5 py-5 gap-4 text-sm" aria-label="Mobile navigation">{[["Our work", "work"], ["The studio", "about"], ["Packages", "packages"]].map(([label, id]) => <Button key={id} variant="ghost" asChild><a href={`#${id}`} onClick={() => setMenu(false)}>{label}</a></Button>)}</nav>}
+    {menu && <nav className="mobile-nav flex-col border-t border-border px-5 py-5 gap-4 text-sm" aria-label="Mobile navigation">{[["Our work", "work"], ["About us", "about"], ["Packages", "packages"]].map(([label, id]) => <Button key={id} variant="ghost" asChild><a href={`#${id}`} onClick={() => setMenu(false)}>{label}</a></Button>)}</nav>}
     <main>
       <section className="hero">
         <img src={reception.url} alt="Reception buffet with gold drapery and floral arrangements" width={1920} height={1280} className="hero-image" fetchPriority="high" />
@@ -72,8 +74,8 @@ function Index() {
         <div className="hero-bottom studio-container"><p className="eyebrow">A different way of seeing.</p><Button variant="glass" size="icon" className="border-0" asChild aria-label="Discover the studio"><a href="#about"><ArrowDown /></a></Button><p className="eyebrow"><span className="status-dot" />Let’s create something</p></div>
       </section>
       <section id="about" className="studio-container intro">
-        <h2>More than an image.<br />A feeling that stays with you.</h2>
-        <p>We’re Pixel Sounds Media, based in Nairobi, Kenya. We capture wedding stories through photography and film, connect families and audiences through funeral, church and corporate livestreaming, and bring artists’ visions to life through music shoots.</p>
+        <div><p className="eyebrow text-muted-foreground mb-4">About us · Pixel Sounds Media</p><h2>More than an image.<br />A feeling that stays with you.</h2><Button variant="link" asChild className="px-0 mt-5"><a href="#team">Meet Brian & Rodgers <ArrowDown /></a></Button></div>
+        <div className="about-story"><p>We’re Pixel Sounds Media, based in Nairobi, Kenya. We capture wedding stories through photography and film, connect families and audiences through funeral, church and corporate livestreaming, and bring artists’ visions to life through music shoots.</p><p>Brian leads our studio’s vision, planning and creative standards. Rodgers shapes the visual storytelling, directs shoots and reviews the final edits. Together, their focus is on thoughtful images and films that preserve what matters to you.</p><Button variant="outline" asChild className="mt-5"><a href="#contact">Tell us your story <ArrowUpRight /></a></Button></div>
       </section>
       <section id="team" className="studio-container team-section"><p className="eyebrow text-muted-foreground mb-3">The people behind PSM</p><h2 className="section-heading">Meet the team<span className="text-primary">.</span></h2><div className="team-grid">{team.map(m => <article key={m.name} className="team-card"><img src={m.photo} alt={`${m.name}, ${m.role}`} loading="lazy" /><div><h3>{m.name}</h3><p className="team-role">{m.role}</p><p className="team-focus">{m.focus}</p><ul>{m.duties.map(d => <li key={d}>{d}</li>)}</ul></div></article>)}</div></section>
       <section id="work" className="studio-container work-section">

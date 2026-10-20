@@ -14,6 +14,8 @@
 - Booking requests use a shared client/server validation schema and a public server function with an insert-only publishable client; no visitor can read or change private requests.
 - Booking receipts mean requested, not confirmed, and must not imply that a date is reserved, a payment collected, or an email sent.
 - Keep package definitions in one client-safe catalog shared by the package display and booking flow so labels stay consistent.
+- Keep package recommendations in the shared catalog and open the existing booking flow with the recommended identifier so no parallel enquiry path or pricing source is introduced.
+- Apply one-time viewport entrances through the studio motion hook with centrally defined CSS and reduced-motion opt-out so content remains visible without JavaScript.
 - Label the bundled image montage as a mood reel, not a client film, because it is concept imagery.
 
 - Derive booking package validation from the shared catalog; preserve historical database package identifiers when extending choices so existing requests remain valid.
